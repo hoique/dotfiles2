@@ -1,0 +1,223 @@
+;==========================================================
+;
+;
+;   ██████╗  ██████╗ ██╗  ██╗   ██╗██████╗  █████╗ ██████╗
+;   ██╔══██╗██╔═══██╗██║  ╚██╗ ██╔╝██╔══██╗██╔══██╗██╔══██╗
+;   ██████╔╝██║   ██║██║   ╚████╔╝ ██████╔╝███████║██████╔╝
+;   ██╔═══╝ ██║   ██║██║    ╚██╔╝  ██╔══██╗██╔══██║██╔══██╗
+;   ██║     ╚██████╔╝███████╗██║   ██████╔╝██║  ██║██║  ██║
+;   ╚═╝      ╚═════╝ ╚══════╝╚═╝   ╚═════╝ ╚═╝  ╚═╝╚═╝  ╚═╝
+;
+;
+;   To learn more about how to configure Polybar
+;   go to https://github.com/jaagr/polybar
+;
+;   The README contains alot of information
+;
+;==========================================================
+
+[colors]
+background = #80323232
+background-alt = #80323232
+foreground = #E6E6E6
+foreground-alt = #E6E6E6
+primary = #ffb52a
+secondary = #e60053
+alert = #bd2c40
+
+[bar/left]
+monitor = ${env:MONITOR:DP-2}
+wm-restack = bspwm
+width = 90%
+offset-x = 5%
+offset-y = 10
+height = 30
+radius = 5
+fixed-center = true
+background = #80323232
+foreground = #E6E6E6
+line-size = 3
+line-color = #f00
+padding-left = 1
+padding-right = 1
+module-margin = 1
+font-0 = Anonymous Pro:pixelsize=18:antialias=true;3
+font-1 = Anonymous Pro:pixelsize=18;antialias=true;3
+font-2 = NotoSansCJKJP:pixelsize:18:antialias=true;3
+modules-left = bspwm
+modules-center = title
+modules-right = term pulseaudio cpu temperature fan-speed memory filesystem xkeyboard date time
+tray-position = right
+tray-padding = 3
+tray-background = #80323232
+;override-redirect = true
+scroll-up = bspwm-desknext
+scroll-down = bspwm-deskprev
+cursor-click = pointer
+cursor-scroll = pointer
+
+[bar/right]
+monitor = ${env:MONITOR:HDMI-0}
+wm-restack = bspwm
+width = 90%
+offset-x = 5%
+offset-y = 10
+height = 25
+radius = 5
+fixed-center = true
+background = #80323232
+foreground = #E6E6E6
+line-size = 3
+line-color = #f00
+padding-left = 1
+padding-right = 1
+module-margin = 1
+font-0 = Anonymous Pro:pixelsize=13:antialias=true;3
+font-1 = Anonymous Pro:pixelsize=13;antialias=true;3
+font-2 = NotoSansCJKJP:pixelsize:13:antialias=true;3
+modules-left = bspwm
+modules-center = title
+modules-right = term pulseaudio cpu temperature fan-speed memory filesystem xkeyboard date time
+tray-position = right
+tray-padding = 3
+tray-background = #80323232
+;override-redirect = true
+scroll-up = bspwm-desknext
+scroll-down = bspwm-deskprev
+cursor-click = pointer
+cursor-scroll = pointer
+
+[module/title]
+type = internal/xwindow
+format = <label>
+format-foreground = #ffff
+label = %title%
+label-maxlen = 50
+label-empty = 
+
+[module/term]
+type = custom/menu
+expand-right = true
+menu-0-0 =  J
+menu-0-0-exec = urxvt &
+label-open = .
+label-separator = ~
+label-close = N  
+
+[module/bspwm]
+type = internal/bspwm
+pin-workspaces = false
+inline-mode = true
+enable-click = true
+enable-scroll = false
+reverse-scroll = false
+fuzzy-match = true
+
+format = <label-state> <label-mode>
+label-monitor = %name%
+
+label-focused = %name%
+label-focused-foreground = $ffffff
+label-focused-background = #3f3f3f
+label-focused-underline = #fba922
+label-focused-padding = 1
+
+label-occupied = %name%
+label-occupied-underline = #555555
+label-occupied-padding = 1
+
+label-empty = %name%
+label-empty-foreground = #55
+label-empty-padding = 1
+
+label-dimmed-foreground = #55
+label-dimmed-padding = 1
+
+label-separator =  |
+label-separator-padding = 1
+label-separator-foreground = #c9c9c9
+
+
+[module/xkeyboard]
+type = internal/xkeyboard
+blacklist-0 = num lock
+format = <label-layout>
+format-prefix = "KBL "
+format-prefix-foreground = #c2c2c2
+label-layout = %layout%
+label-layout-foreground = #dbdbdb
+label-indicator-padding = 2
+label-indicator-margin = 1
+
+[module/filesystem]
+type = internal/fs
+interval = 25
+mount-0 = /
+format-mounted = <label-mounted>
+format-unmounted = <label-unmounted>
+format-unmounted-prefix = "DSK "
+format-unmounted-prefix-foreground = #c2c2c2
+format-mounted-prefix = "DSK "
+format-mounted-prefix-foreground = #c2c2c2
+label-mounted = %percentage_used%%
+label-mounted-foreground = #E6E6E6
+label-unmounted = unmounted
+label-unmounted-foreground = #E6E6E6
+
+[module/cpu]
+type = internal/cpu
+interval = 1
+format-prefix = "CPU "
+format-prefix-foreground = #c2c2c2
+label = %percentage:3%%
+label-foreground = #dbdbdb
+
+[module/memory]
+type = internal/memory
+interval = 1
+format-prefix = "RAM "
+format-prefix-foreground = #c2c2c2
+label = %gb_used%
+label-foreground = #dbdbdb
+
+[module/date]
+type = internal/date
+interval = 1
+date = %d.%m.%Y
+;format-prefix =
+label = %date%
+
+[module/time]
+type = internal/date
+interval = 1
+time = %H:%M:%S
+;format-prefix = ""
+label = %time%
+label-foreground = #fffff
+
+[module/pulseaudio]
+type = internal/pulseaudio
+format-volume-prefix = "VOL "
+format-volume-prefix-foreground = #c2c2c2
+format-volume = <label-volume>
+label-volume = %percentage%%
+label-volume-foreground = #dbdbdb
+format-muted-prefix = "VOL "
+format-muted-prefix-foreground = #c2c2c2
+format-muted = <label-muted>
+label-muted = muted
+label-muted-foreground = #fa0000
+
+[module/temperature]
+type = internal/temperature
+thermal-zone = 0
+warn-temperature = 80
+format = <label>
+format-warn = <label-warn>
+label = T°C=%temperature-c%
+label-warn = %temperature-c%
+label-warn-foreground = #C37561
+
+[global/wm]
+margin-top = 0
+margin-bottom = 0

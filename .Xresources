@@ -1,0 +1,97 @@
+! --- special colors ---
+
+*background: #3d3c39
+*foreground: #d9e6f2
+
+! --- standard colors ---
+
+! black
+*color0: #161616
+
+! bright_black
+*color8: #424242
+
+! red
+*color1: #774c3b
+
+! bright_red
+*color9: #bc8a77
+
+! green
+*color2: #3b774c
+
+! bright_green
+*color10: #77bc8a
+
+! yellow
+*color3: #ffdd00
+
+! bright_yellow
+*color11: #a8bc77
+
+! blue
+*color4: #4c3b77
+
+! bright_blue
+*color12: #8a77bc
+
+! magenta
+*color5: #773b66
+
+! bright_magenta
+*color13: #bc77a8
+
+! cyan
+*color6: #3b6677
+
+! bright_cyan
+*color14: #77a8bc
+
+! white
+*color7: #cbcbcb
+
+! bright_white
+*color15: #ffffff
+
+
+
+
+URxvt.font:			xft:Anonymous Pro:pixelsize=24:antialias=true:hinting=true
+URxvt.boldFont:		xft:Anonymous Pro:bold:pixelsize=24:antialias=true:hinting=true
+URxvt.scrollBar:	false
+URxvt.saveLines:	65535
+URxvt.perl-ext-common: keyboard-select,url-select,clipboard
+URxvt.keysym.M-Escape: perl:keyboard-select:activate
+URxvt.keysym.M-s: perl:keyboard-select:search
+URxvt.keysym.M-u: perl:url-select:select_next
+URxvt.keysym.M-c:   perl:clipboard:copy
+URxvt.keysym.M-v:   perl:clipboard:paste
+URxvt.keysym.M-C-v: perl:clipboard:paste_escaped
+Xft*dpi:       125
+Xft*antialias: True
+Xft*hinting:   Slight
+URxvt.keysym.KP_Add:    +
+URxvt.keysym.KP_Subtract: -
+URxvt.keysym.KP_Multiply: *
+URxvt.keysym.KP_Divide  : /
+URxvt.keysym.KP_Decimal : .
+URxvt.keysym.KP_Separator : ,
+URxvt.keysym.KP_1:      1
+URxvt.keysym.KP_2:      2
+URxvt.keysym.KP_3:      3
+URxvt.keysym.KP_4:      4
+URxvt.keysym.KP_5:      5
+URxvt.keysym.KP_6:      6
+URxvt.keysym.KP_7:      7
+URxvt.keysym.KP_8:      8
+URxvt.keysym.KP_9:      9
+URxvt.keysym.KP_0:      0
+
+URxvt.transparent:   false
+urxvt*background: rgba:1870/1870/1870/c700
+urxvt*depth: 32
+
+! urxvt*background: #3d3c39
+
+Xcursor.size: 16
+
